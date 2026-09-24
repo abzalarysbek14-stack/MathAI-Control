@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MathAI Control — ЖИ жауабын тексеру</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="logo">∑</span><span>MathAI<br><b>Control</b></span></div>
+    <nav>
+      <button class="nav active" data-page="home">⌂ <span>Басты бет</span></button>
+      <button class="nav" data-page="checker">▣ <span>ЖИ жауабын тексеру</span></button>
+      <button class="nav" data-page="tasks">☑ <span>Тапсырмалар</span></button>
+      <button class="nav" data-page="stats">◷ <span>Тексеру тарихы</span></button>
+      <button class="nav" data-page="about">ⓘ <span>Жоба туралы</span></button>
+    </nav>
+    <div class="side-note">
+      <b>Мақсат</b>
+      <p>ЖИ ұсынған математикалық шешімді бірден қабылдамай, әр қадамын тексеру және қатені түсіну.</p>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <div>
+        <div class="eyebrow">Авторлық цифрлық платформа</div>
+        <h1 id="pageTitle">ЖИ жауабын тексеру</h1>
+      </div>
+      <div class="profile">◉ <span>Оқушы</span></div>
+    </header>
+
+    <section id="home" class="page">
+      <div class="hero">
+        <div>
+          <span class="badge">MathAI Control</span>
+          <h2>Жасанды интеллект берген математикалық шешімді тексер.</h2>
+          <p>Әр қадамды талда, қатені тап және дұрыс шешімге өзің жет.</p>
+          <button class="primary" onclick="showPage('checker')">Тексеруді бастау →</button>
+        </div>
+        <div class="hero-symbol">√<span>Σ</span></div>
+      </div>
+      <div class="cards">
+        <div class="info-card"><strong>10</strong><span>дайын есеп</span></div>
+        <div class="info-card"><strong>100%</strong><span>автоматты тексеру</span></div>
+        <div class="info-card"><strong>3</strong><span>деңгей</span></div>
+      </div>
+      <div class="section-title">Қалай жұмыс істейді?</div>
+      <div class="steps">
+        <div><b>01</b><h3>Есепті таңда</h3><p>Дайын тапсырмалардың бірін таңда.</p></div>
+        <div><b>02</b><h3>ЖИ шешімін енгіз</h3><p>Әр қадамды жеке-жеке жаз.</p></div>
+        <div><b>03</b><h3>Тексер</h3><p>Платформа қате қадамды көрсетіп, түсіндіреді.</p></div>
+      </div>
+    </section>
+
+    <section id="checker" class="page hidden">
+      <div class="layout">
+        <div class="panel">
+          <div class="panel-head"><h2>Есепті тексеру</h2><select id="taskSelect"></select></div>
+          <div id="taskText" class="problem"></div>
+          <label>ЖИ ұсынған шешім қадамдары</label>
+          <textarea id="solutionInput" rows="10" placeholder="Мысалы:
+1) ...
+2) ...
+3) ..."></textarea>
+          <div class="actions">
+            <button class="secondary" onclick="loadExample()">Үлгі жауапты көру</button>
+            <button class="primary" onclick="checkSolution()">Тексеру</button>
+          </div>
+          <div id="result" class="result hidden"></div>
+        </div>
+        <div class="panel checklist">
+          <h2>Шешім қадамдарын тексеру</h2>
+          <div id="checks">
+            <div class="check muted">○ Есептің шарты түсінілді</div>
+            <div class="check muted">○ Формула дұрыс таңдалды</div>
+            <div class="check muted">○ Есептеу дұрыс орындалды</div>
+            <div class="check muted">○ Қорытынды жауап дұрыс</div>
+          </div>
+          <div class="score-box"><span>Ұпай</span><strong id="score">—</strong><small>/ 100</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tasks" class="page hidden">
+      <div class="panel">
+        <h2>Тапсырмалар жинағы</h2>
+        <p class="muted-text">Әр есепті таңдап, ЖИ шешімін тексеру бөліміне өтуге болады.</p>
+        <div id="taskList" class="task-list"></div>
+      </div>
+    </section>
+
+    <section id="stats" class="page hidden">
+      <div class="panel">
+        <h2>Тексеру тарихы</h2>
+        <div id="history"></div>
+        <button class="secondary" onclick="clearHistory()">Тарихты тазалау</button>
+      </div>
+    </section>
+
+    <section id="about" class="page hidden">
+      <div class="panel about">
+        <span class="badge">Жоба туралы</span>
+        <h2>MathAI Control</h2>
+        <p>Бұл платформа оқушыға жасанды интеллект ұсынған математикалық шешімді дайын жауап ретінде қабылдамай, оның дұрыстығын қадам бойынша тексеруге көмектеседі.</p>
+        <div class="about-grid">
+          <div><b>HTML</b><span>Сайт құрылымы</span></div>
+          <div><b>CSS</b><span>Дизайн және бейімделу</span></div>
+          <div><b>JavaScript</b><span>Тексеру, ұпай және түсіндірме</span></div>
+          <div><b>GitHub Pages</b><span>Тегін жариялау</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
